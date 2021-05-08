@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="classes">
+  <test thread-count="5" name="Test(failed)" parallel="classes">
+    <classes>
+      <class name="Testleaf.leaftaps.FindLead">
+        <methods>
+          <include name="DuplicateLead"/>
+        </methods>
+      </class> <!-- Testleaf.leaftaps.FindLead -->
+      <class name="Testleaf.leaftaps.CreateLead">
+        <methods>
+          <include name="CreateLead"/>
+        </methods>
+      </class> <!-- Testleaf.leaftaps.CreateLead -->
+      <class name="Testleaf.leaftaps.MergeLead">
+        <methods>
+          <include name="Mergelead"/>
+        </methods>
+      </class> <!-- Testleaf.leaftaps.MergeLead -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
