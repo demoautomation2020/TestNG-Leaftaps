@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="30140" started-at="2021-05-08T19:30:47 IST" finished-at="2021-05-08T19:31:17 IST">
+  <suite name="Default suite" duration-ms="17929" started-at="2021-05-24T04:29:00 IST" finished-at="2021-05-24T04:29:18 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="30140" started-at="2021-05-08T19:30:47 IST" finished-at="2021-05-08T19:31:17 IST">
-      <class name="Testleaf.leaftaps.CreateLead">
-        <test-method status="PASS" signature="CreateLead()[pri:0, instance:Testleaf.leaftaps.CreateLead@4690b489]" name="CreateLead" duration-ms="29926" started-at="2021-05-08T19:30:47 IST" finished-at="2021-05-08T19:31:17 IST">
+    <test name="Default test" duration-ms="17929" started-at="2021-05-24T04:29:00 IST" finished-at="2021-05-24T04:29:18 IST">
+      <class name="Testleaf.TestAutomation.DuplicateLead">
+        <test-method status="PASS" signature="DuplicateLead()[pri:0, instance:Testleaf.TestAutomation.DuplicateLead@3eb7fc54]" name="DuplicateLead" duration-ms="17635" started-at="2021-05-24T04:29:00 IST" finished-at="2021-05-24T04:29:18 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CreateLead -->
-      </class> <!-- Testleaf.leaftaps.CreateLead -->
+        </test-method> <!-- DuplicateLead -->
+      </class> <!-- Testleaf.TestAutomation.DuplicateLead -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

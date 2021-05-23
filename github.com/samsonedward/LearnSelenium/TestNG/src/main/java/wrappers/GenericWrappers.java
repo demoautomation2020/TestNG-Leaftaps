@@ -448,8 +448,8 @@ public class GenericWrappers implements Wrappers{
 	{		
 		//try block has all the possible conditions
 		try {
-			driver.findElementByXPath(xpathVal).click();
-			System.out.println("The link in grid clicked is : "+xpathVal);
+			 driver.findElementByXPath(xpathVal).click();
+			 System.out.println("The link in grid clicked is : "+xpathVal);
 		} 
 		//in case of element not found this catch block will be executed
 		catch (NoSuchElementException e) 

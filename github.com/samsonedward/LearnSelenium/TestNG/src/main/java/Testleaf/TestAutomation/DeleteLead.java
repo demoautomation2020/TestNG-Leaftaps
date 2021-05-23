@@ -1,49 +1,58 @@
 package Testleaf.TestAutomation;
 
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
-import org.testng.internal.BaseClassFinder;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import wrappers.GenericWrappers;
 
-public class DeleteLead {
+public class DeleteLead extends GenericWrappers {
 
 	@Test
-	public void runDeleteLead() throws InterruptedException {
+	public void DeleteLead() throws InterruptedException {
+
+		invokeApp("chrome", "http://leaftaps.com/opentaps/control/main");
+
+		// Entering UserName and Password for login and login
+		enterById("username", "DemoSalesManager");
+		enterById("password", "crmsfa");
+		clickByClassName("decorativeSubmit");
+
+		// Click on "CRM/SFA" link
+		clickByLink("CRM/SFA");
+
+		// Clicking Phone in Find leads link
+		clickByLink("Leads");
+
+		// Click Findleads
+		clickByLink("Find Leads");
+
+		clickByXpath("//span[text()='Phone']");
+
+		// Entering Phonenumber to Search
+		enterByXpath("//input[@name='phoneNumber']", "9");
+
+		// clicking Find leads link
+		clickByXpath("//button[contains(text(),'Find Leads')]");
+
+		Thread.sleep(3000);
+		// Capture lead ID of First Resulting lead
+		String leadId = getTextByXpath("//div[@class='x-grid3-cell-inner x-grid3-col-partyId'][1]/a");
+
+		// Click First Resulting lead
+		clickByXpath("(//div[@class='x-grid3-cell-inner x-grid3-col-partyId'])[1]/a");
+
+		// Click Delete in View lead
+
+		clickByClassName("subMenuButtonDangerous");
+
+		// Click Findleads
+
+		clickByLink("Find Leads");
+
+		enterByXpath("//label[contains(text(),'Lead ID:')]//following-sibling::div/input", leadId);
+		clickByXpath("//button[contains(text(),'Find Leads')]");
+		verifyTextContainsByXpath("//div[contains(text(),'No records to display')]", "No records to display");
+	}
+
+	}
 		
-		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
-		ChromeDriver driver = new ChromeDriver();
 		
-		driver.get("http://leaftaps.com/opentaps/");
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		driver.findElementById("username").sendKeys("DemoSalesManager");
-		driver.findElementById("password").sendKeys("crmsfa");
-		
-		driver.findElementByLinkText("Find Leads").click();
-		driver.findElementByXPath("//span[text()='Phone']").click();
-		driver.findElementByXPath("//input[@name='phoneNumber']").sendKeys("9");
-		driver.findElementByXPath("//button[text()='Find Leads']").click();
-		Thread.sleep(2000);
-		String leadID = driver.findElementByXPath("//div[@class='x-grid3-cell-inner x-grid3-col-partyId']/a").getText();
-		driver.findElementByXPath("//div[@class='x-grid3-cell-inner x-grid3-col-partyId']/a").click();
-		driver.findElementByLinkText("Delete").click();
-		driver.findElementByLinkText("Find Leads").click();
-		driver.findElementByXPath("//input[@name='id']").sendKeys(leadID);
-		driver.findElementByXPath("//button[text()='Find Leads']").click();
-		String text = driver.findElementByClassName("x-paging-info").getText();
-		if (text.equals("No records to display")) {
-			System.out.println("Text matched");
-		} else {
-			System.out.println("Text not matched");
-		}
-		
-}
-}
-
-
-
-
-
-
